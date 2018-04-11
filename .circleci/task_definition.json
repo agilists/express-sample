@@ -1,0 +1,24 @@
+{
+    "memory": 256,
+    "portMappings": [
+      {
+        "hostPort": 80,
+        "containerPort": 8080,
+        "protocol": "tcp"
+      }
+    ],
+    "name": "nodeapp",
+    "image": "sample",
+    "cpu": 10,
+    "environment" : [
+      { "name" : "ECS_AVAILABLE_LOGGING_DRIVER", "value" : "'[\"awslogs\"]'" }
+    ],
+    "logConfiguration": {
+      "logDriver": "awslogs",
+      "options": {
+        "awslogs-group": "awslogs-GroupName",
+        "awslogs-region": "ap-northeast-1",
+        "awslogs-stream-prefix": "awslogs-example"
+      }
+    }
+  }
