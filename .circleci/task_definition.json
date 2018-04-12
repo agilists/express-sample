@@ -1,7 +1,16 @@
 {
-    "name": "agile-training-app",
     "memory": 256,
+    "portMappings": [
+        {
+            "hostPort": 80,
+            "containerPort": 8080,
+            "protocol": "tcp"
+        }
+    ],
+    "cpu": 10,
+    "name": "agile-training-app",
     "environment" : [
         { "name" : "ECS_AVAILABLE_LOGGING_DRIVER", "value" : "'[\"awslogs\"]'" }
     ]
 }
+
