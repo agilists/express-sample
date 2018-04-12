@@ -1,5 +1,6 @@
 {
     "name": "agile-training-app",
+    "memory": 256,
     "environment" : [
         { "name" : "ECS_AVAILABLE_LOGGING_DRIVER", "value" : "'[\"awslogs\"]'" }
     ]
