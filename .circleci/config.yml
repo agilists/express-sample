@@ -60,7 +60,7 @@ jobs:
       - run:
           name: deploy to staging
           command: |
-            python .circleci/ecs_deploy.py task_definition.json ${DOCKER_IMAGE}:development 1 0 200
+            python .circleci/ecs_deploy.py .circleci/task_definition.json ${DOCKER_IMAGE}:development 1 0 200
             
 workflows:
   version: 2
