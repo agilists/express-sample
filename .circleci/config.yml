@@ -56,10 +56,12 @@ jobs:
       - run:
           name: push docker image to ECR 
           command: |
+            echo ${AWS_REGISTRY_URL}:$BUILD_ID
             docker push ${AWS_REGISTRY_URL}:$BUILD_ID
       - run:
           name: tag and push docker development image to ECR 
           command: |
+            echo ${AWS_REGISTRY_URL}:development
             docker tag ${AWS_REGISTRY_URL}:$BUILD_ID ${AWS_REGISTRY_URL}:development 
             docker push ${AWS_REGISTRY_URL}:development
       - run:
