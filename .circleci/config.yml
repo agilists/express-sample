@@ -44,7 +44,7 @@ jobs:
       - run:
          name: install necessary packages
          command: |
-           pip install -r .circleci/requirements.txt
+           pip install --user -r .circleci/requirements.txt
       - run:
           name: build docker image
           command: |
