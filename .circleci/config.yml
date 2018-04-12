@@ -44,8 +44,7 @@ jobs:
       - run:
          name: install necessary packages
          command: |
-           aws --version
-           pip install boto3==1.3.0
+           pip install boto3
       - run:
           name: build docker image
           command: |
@@ -57,7 +56,6 @@ jobs:
             docker push ${AWS_REGISTRY_URL}:$BUILD_ID
             docker tag ${AWS_REGISTRY_URL}:$BUILD_ID ${AWS_REGISTRY_URL}:development
             docker push ${AWS_REGISTRY_URL}:development
-
       - run:
           name: deploy to staging
           command: |
