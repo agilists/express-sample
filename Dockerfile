@@ -1,6 +1,6 @@
 FROM circleci/node:8.11.1
-COPY . /code
-WORKDIR /code
+COPY . /home/circleci/code
+WORKDIR /home/circleci/code
 
 EXPOSE 8080
 
