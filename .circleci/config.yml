@@ -38,8 +38,6 @@ jobs:
     docker:
       - image: circleci/python:3.6.5
     working_directory: ~/repo
-    environment:
-      BUILD_ID: ${CIRCLE_BRANCH}_${CIRCLE_SHA1}_${CIRCLE_BUILD_NUM}
     steps:
       - setup_remote_docker
       - checkout
@@ -52,15 +50,10 @@ jobs:
           command: |
             # aws login
             eval $($HOME/.local/bin/aws ecr get-login --region ${AWS_DEFAULT_REGION} --no-include-email)
+            export BUILD_ID=${CIRCLE_BRANCH}_${CIRCLE_SHA1}_${CIRCLE_BUILD_NUM}
             docker build -t ${AWS_REGISTRY_URL}:$BUILD_ID .circleci
-      - run:
-          name: push docker image to ECR 
-          command: |
             echo ${AWS_REGISTRY_URL}:$BUILD_ID
             docker push ${AWS_REGISTRY_URL}:$BUILD_ID
-      - run:
-          name: tag and push docker development image to ECR 
-          command: |
             echo ${AWS_REGISTRY_URL}:development
             docker tag ${AWS_REGISTRY_URL}:$BUILD_ID ${AWS_REGISTRY_URL}:development 
             docker push ${AWS_REGISTRY_URL}:development
