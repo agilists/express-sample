@@ -1,6 +1,11 @@
 FROM circleci/node:8.11.1
-COPY . /home/circleci/code
-WORKDIR /home/circleci/code
+COPY . /code
+WORKDIR /code
+
+USER root
+RUN chown -R circleci:circleci /code
+
+USER circleci
 
 EXPOSE 8080
 
