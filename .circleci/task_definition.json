@@ -15,7 +15,7 @@
   "logConfiguration": {
     "logDriver": "awslogs",
     "options": {
-      "awslogs-group": "sample-training-team01",
+      "awslogs-group": "sample-training1-team01",
       "awslogs-region": "ap-northeast-1",
       "awslogs-stream-prefix": "agile-training-app"
     }
