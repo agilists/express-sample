@@ -6,5 +6,5 @@ it('changes all the letters to uppercase', function() {
 });
 
 it('returns string length', function() {
-  assert.equal(utils.stringLength("heLLo"), 5)
+  assert.equal(utils.stringLength("heLo"), 5)
 });
